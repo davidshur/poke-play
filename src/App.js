@@ -6,8 +6,8 @@ import BattleBox from './components/BattleBox';
 
 const App = () => {
   return (
-    <div className="App">
-      <div className="Main">
+    <div className='App'>
+      <div className='Main'>
         <Header />
         <BattleBox />
       </div>
