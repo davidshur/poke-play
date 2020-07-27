@@ -13,22 +13,22 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <div className="Main">
+    <div className='App'>
+      <div className='Main'>
         <Header />
-        <div className="Splitter">
-          <header className="Battler">
+        <div className='Splitter'>
+          <header className='Battler'>
             <p>Pokemon #{firstPokemon}</p>
           </header>
-          <div className="Versus">
+          <div className='Versus'>
             <h4>VS</h4>
           </div>
-          <header className="Battler">
+          <header className='Battler'>
             <p>Pokemon #{secondPokemon}</p>
           </header>
         </div>
         <div>
-          <button className="Button" onClick={handleClick}>
+          <button className='Button' onClick={handleClick}>
             BATTLE
           </button>
         </div>
