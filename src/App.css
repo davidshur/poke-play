@@ -1,21 +1,33 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
   background-color: #282c34;
+}
+
+.Header {
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  color: white;
+  align-items: center;
+}
+
+.Main {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Battler {
+  width: 45vw;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Versus {
+  width: 10vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,15 +36,17 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Splitter {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Button {
+  width: 100px;
+  height: 50px;
+  background-color: teal;
+  border-radius: 1rem;
+  font-weight: 700;
+  border: none;
+  color: white;
+  outline: none;
 }
