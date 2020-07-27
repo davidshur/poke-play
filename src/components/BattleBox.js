@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useFetch } from '../hooks/useFetch';
 
 const POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon/';
 
@@ -34,18 +35,18 @@ const BattleBox = () => {
 
   return (
     <>
-      <div className='Splitter'>
-        <header className='Battler'>
+      <div className="Splitter">
+        <header className="Battler">
           {firstPokemon && (
             <p>
               Pokemon #{firstPokemon.id}: {firstPokemon.name}
             </p>
           )}
         </header>
-        <div className='Versus'>
+        <div className="Versus">
           <h4>VS</h4>
         </div>
-        <header className='Battler'>
+        <header className="Battler">
           {secondPokemon && (
             <p>
               Pokemon #{secondPokemon.id}: {secondPokemon.name}
@@ -54,7 +55,7 @@ const BattleBox = () => {
         </header>
       </div>
       <div>
-        <button className='Button' onClick={handleClick}>
+        <button className="Button" onClick={handleClick}>
           BATTLE
         </button>
       </div>
