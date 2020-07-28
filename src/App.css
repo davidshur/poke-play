@@ -18,6 +18,11 @@
   justify-content: center;
 }
 
+.Selector {
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
 .Landing {
   color: white;
   width: 100vw;
@@ -30,6 +35,7 @@
   flex-direction: column;
   font-size: calc(10px + 2vmin);
   color: white;
+  align-items: center;
 }
 
 .Versus {
