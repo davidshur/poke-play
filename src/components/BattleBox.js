@@ -1,14 +1,13 @@
 import React from 'react';
+import Pokemon from '../components/Pokemon';
+
 import useFetch from '../hooks/useFetch';
+
 const POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon/';
 
 const BattleBox = () => {
   const [firstPokemonData, setFirstPokemonUrl] = useFetch();
   const [secondPokemonData, setSecondPokemonUrl] = useFetch();
-
-  // TODO(davidshur): refactor to only have one hook and reduce amount of
-  // useState above (can have one function that picks the ID and does the fetch
-  // all in one go for simplicity, code deduplication, and organization).
 
   const handleClick = () => {
     const firstPokemonId = Math.floor(Math.random() * 151);
@@ -22,21 +21,13 @@ const BattleBox = () => {
     <>
       <div className="Splitter">
         <header className="Battler">
-          {firstPokemonData && (
-            <p>
-              Pokemon #{firstPokemonData.id}: {firstPokemonData.name}
-            </p>
-          )}
+          {firstPokemonData.sprites && <Pokemon data={firstPokemonData} />}
         </header>
         <div className="Versus">
           <h4>VS</h4>
         </div>
         <header className="Battler">
-          {secondPokemonData && (
-            <p>
-              Pokemon #{secondPokemonData.id}: {secondPokemonData.name}
-            </p>
-          )}
+          {secondPokemonData.sprites && <Pokemon data={secondPokemonData} />}
         </header>
       </div>
       <div>
