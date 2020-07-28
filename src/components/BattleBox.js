@@ -1,45 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { useFetch } from '../hooks/useFetch';
-
+import React from 'react';
+import useFetch from '../hooks/useFetch';
 const POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon/';
 
 const BattleBox = () => {
-  const [firstPokemonId, setFirstPokemonId] = useState(1);
-  const [secondPokemonId, setSecondPokemonId] = useState(1);
-  const [firstPokemon, setFirstPokemon] = useState();
-  const [secondPokemon, setSecondPokemon] = useState();
+  const [firstPokemonData, setFirstPokemonUrl] = useFetch();
+  const [secondPokemonData, setSecondPokemonUrl] = useFetch();
 
   // TODO(davidshur): refactor to only have one hook and reduce amount of
   // useState above (can have one function that picks the ID and does the fetch
   // all in one go for simplicity, code deduplication, and organization).
-  useEffect(() => {
-    fetch(POKE_API_URL + firstPokemonId)
-      .then((res) => res.json())
-      .then((response) => {
-        setFirstPokemon(response);
-      });
-  }, [firstPokemonId]);
-
-  useEffect(() => {
-    fetch(POKE_API_URL + secondPokemonId)
-      .then((res) => res.json())
-      .then((response) => {
-        setSecondPokemon(response);
-      });
-  }, [secondPokemonId]);
 
   const handleClick = () => {
-    setFirstPokemonId(Math.floor(Math.random() * 151));
-    setSecondPokemonId(Math.floor(Math.random() * 151));
+    const firstPokemonId = Math.floor(Math.random() * 151);
+    const secondPokemonId = Math.floor(Math.random() * 151);
+
+    setFirstPokemonUrl(POKE_API_URL + firstPokemonId);
+    setSecondPokemonUrl(POKE_API_URL + secondPokemonId);
   };
 
   return (
     <>
       <div className="Splitter">
         <header className="Battler">
-          {firstPokemon && (
+          {firstPokemonData && (
             <p>
-              Pokemon #{firstPokemon.id}: {firstPokemon.name}
+              Pokemon #{firstPokemonData.id}: {firstPokemonData.name}
             </p>
           )}
         </header>
@@ -47,9 +32,9 @@ const BattleBox = () => {
           <h4>VS</h4>
         </div>
         <header className="Battler">
-          {secondPokemon && (
+          {secondPokemonData && (
             <p>
-              Pokemon #{secondPokemon.id}: {secondPokemon.name}
+              Pokemon #{secondPokemonData.id}: {secondPokemonData.name}
             </p>
           )}
         </header>

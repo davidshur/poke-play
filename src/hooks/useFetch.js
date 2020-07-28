@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 const useFetch = () => {
-  const [data, setData] = useState(null);
-  const [url, setUrl] = useState(null);
+  const [data, setData] = useState('https://pokeapi.co/api/v2');
+  const [url, setUrl] = useState('https://pokeapi.co/api/v2');
 
   useEffect(() => {
     const fetchData = async () => {
